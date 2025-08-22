@@ -1,0 +1,12 @@
+{
+    "Management Sentiment": "Positive",
+    "Q&A Sentiment": "Neutral",
+    "Quarter-over-Quarter Tone Change": "Positive",
+    "Strategic Focuses": [
+        "Record revenue in Q4 and fiscal 2025",
+        "Data center revenue more than doubled from the prior year",
+        "Focus on Blackwell product ramp and increased supply to meet demand",
+        "Acceleration in data center compute revenue and inference demand",
+        "Emphasis on driving down inference costs and improving ROI"
+    ]
+}
