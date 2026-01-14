@@ -1,5 +1,7 @@
 # Earnings Call Sentiment Analyzer
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](YOUR_LIVE_APP_URL_HERE)
+
 This project analyzes earnings call transcripts to extract sentiment and strategic insights, and visualizes the results in a dashboard.
 
 ## Setup
