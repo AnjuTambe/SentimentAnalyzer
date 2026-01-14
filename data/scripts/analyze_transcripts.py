@@ -1,13 +1,16 @@
 import os
 import openai
+from openai import OpenAI
 from dotenv import load_dotenv
 
 load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 
-input_folder = "scripts"
-output_folder = "../../analysis"
+# Get the absolute path of the script
+script_dir = os.path.dirname(os.path.abspath(__file__))
+input_folder = script_dir
+output_folder = os.path.join(script_dir, "../analysis")
 
 os.makedirs(output_folder, exist_ok=True)
 
@@ -37,13 +40,15 @@ for filename in transcripts:
 
     prompt = PROMPT_TEMPLATE.format(transcript=transcript[:8000])
 
-    response = openai.ChatCompletion.create(
+    client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
+    response = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[{"role": "user", "content": prompt}],
         temperature=0.3
     )
 
-    analysis = response["choices"][0]["message"]["content"]
+    analysis = response.choices[0].message.content
     print(f"Analyzed: {analysis}")
     out_file = filename.replace(".txt", "_analysis.json")
 
